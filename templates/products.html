@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="products-section">
+        <div class="products-section-container">
+            <h1 class="text-dark text-center">Products</h1>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                    <th>Payment</th>
+                </tr>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.prod_name }}</td>
+                        <td>{{ product.prod_quantity }}</td>
+                        <td>{{ product.prod_price }}</td>
+                        <td><a href="/delete-product/{{ product.id }}">Delete</a></td>
+                        <td><a href="/update-product/{{ product.id }}">Update</a></td>
+                        <td><a href="/payment/{{ product.id }}">Pay via MPESA</a></td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </section>
+{% endblock %}
